@@ -67,8 +67,8 @@ def open_viewer(
     l["config"]["collapse"] = "R"
     viewer.add_shapes(l["data"], **viewer_args(l["config"]), _is_logo=True)
 
-    send_backend({"model": b_logo}, jcv_id=viewer.widget.id)
-    viewer.widget.measure_callback = send_measure_request
+    #send_backend({"model": b_logo}, jcv_id=viewer.widget.id)
+    #viewer.widget.measure_callback = send_measure_request
 
     return viewer
 
