@@ -19,7 +19,7 @@ from cad_viewer_widget.utils import viewer_args
 from cad_viewer_widget import (
     open_viewer as _open_viewer,
 )
-from .comms import send_measure_request, send_backend
+#from .comms import send_measure_request, send_backend
 from ocp_vscode.backend_logo import logo as b_logo
 from .logo import logo
 from ocp_vscode.show import _show, _show_object
