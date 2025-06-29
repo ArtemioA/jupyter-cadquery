@@ -130,7 +130,7 @@ def send_backend(data, port=None, jcv_id=None, timeit=False):
     #if SESSION is None:
     #    init_session(url)
 
-    #message = {
+    message = {
     #   "_xsrf": SESSION.cookies.get("_xsrf"),
     #    "apikey": os.environ.get("JUPYTER_CADQUERY_API_KEY"),
     #    "viewer": jcv_id,
