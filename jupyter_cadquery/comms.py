@@ -124,20 +124,20 @@ def send_backend(data, port=None, jcv_id=None, timeit=False):
 
     Called by ocp_vscode.show.show() to send model to backend
     """
-    port = os.environ.get("JUPYTER_PORT", "8888")
-    url = f"http://localhost:{port}"
+    #port = os.environ.get("JUPYTER_PORT", "8888")
+    #url = f"http://localhost:{port}"
 
-    if SESSION is None:
-        init_session(url)
+    #if SESSION is None:
+    #    init_session(url)
 
     message = {
-        "_xsrf": SESSION.cookies.get("_xsrf"),
-        "apikey": os.environ.get("JUPYTER_CADQUERY_API_KEY"),
-        "viewer": jcv_id,
-        "data": orjson.dumps(data, default=json_default).decode("utf-8"),
-    }
-    response = SESSION.post(f"{url}/objects", data=message)
-    return response.status_code
+    #   "_xsrf": SESSION.cookies.get("_xsrf"),
+    #    "apikey": os.environ.get("JUPYTER_CADQUERY_API_KEY"),
+    #    "viewer": jcv_id,
+    #    "data": orjson.dumps(data, default=json_default).decode("utf-8"),
+    #}
+    #response = SESSION.post(f"{url}/objects", data=message)
+    #return response.status_code
 
 
 def send_measure_request(jcv_id, shape_ids):
@@ -147,20 +147,20 @@ def send_measure_request(jcv_id, shape_ids):
     Called as callbacks by cad_viewer_widget.widget.CadViewerWidget.active_tool and
     cad_viewer_widget.widget.CadViewerWidget.selected_shape_ids to retrieve measurements
     """
-    port = os.environ.get("JUPYTER_PORT", "8888")
-    url = f"http://localhost:{port}"
+    #port = os.environ.get("JUPYTER_PORT", "8888")
+    #url = f"http://localhost:{port}"
 
-    if SESSION is None:
-        init_session(url)
+    #if SESSION is None:
+    #   init_session(url)
 
-    message = {
-        "_xsrf": SESSION.cookies.get("_xsrf"),
-        "apikey": os.environ.get("JUPYTER_CADQUERY_API_KEY"),
-        "viewer": jcv_id,
-        "data": orjson.dumps(shape_ids).decode("utf-8"),
-    }
-    response = SESSION.post(f"{url}/measure", data=message)
-    return response.status_code, response.text
+    #message = {
+    #    "_xsrf": SESSION.cookies.get("_xsrf"),
+    #    "apikey": os.environ.get("JUPYTER_CADQUERY_API_KEY"),
+    #    "viewer": jcv_id,
+    #    "data": orjson.dumps(shape_ids).decode("utf-8"),
+    #}
+    #response = SESSION.post(f"{url}/measure", data=message)
+    #return response.status_code, response.text
 
 
 def send_config(config, port=None, title=None, timeit=False):
