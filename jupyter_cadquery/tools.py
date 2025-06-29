@@ -38,6 +38,25 @@ except ImportError:
     HAS_BUILD123D = False
 
 
+import sys
+import cadquery as cq
+import argparse
+from jupyter_cadquery.viewer.client import show
+
+def export_step_to_html(step_file, output_html):
+    # Load the STEP file
+    shape = cq.importers.importStep(step_file)
+    # Show and export as HTML
+    show(shape, export_html=output_html)
+    print(f"Exported {step_file} to {output_html}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Export a STEP file to standalone HTML using jupyter-cadquery.")
+    parser.add_argument("step_file", help="Path to the STEP file")
+    parser.add_argument("-o", "--output", default="output.html", help="Output HTML file name")
+    args = parser.parse_args()
+    export_step_to_html(args.step_file, args.output)
+    
 # pylint: disable=protected-access
 # pylint: disable=unnecessary-lambda
 def auto_show():
